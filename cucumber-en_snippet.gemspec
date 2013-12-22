@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mtsmfm@gmail.com"]
   spec.description   = "Output cucumber step definition snippets in English regardless of a language header"
   spec.summary       = "Output cucumber snippets in English"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mtsmfm/cucumber-en_snippet"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
