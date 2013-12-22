@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Cucumber::EnSnippet::VERSION
   spec.authors       = ["Fumiaki MATSUSHIMA"]
   spec.email         = ["mtsmfm@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "Output cucumber step definition snippets in English regardless of a language header"
+  spec.summary       = "Output cucumber snippets in English"
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -1,6 +1,6 @@
 # Cucumber::EnSnippet
 
-TODO: Write a gem description
+Output cucumber step definition snippets in English regardless of a language header.
 
 ## Installation
 
