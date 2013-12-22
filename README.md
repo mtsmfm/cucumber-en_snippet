@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Require this library in your ruby files under `features/support`.
+
+``` ruby
+require 'cucumber/en_snippet'
+```
 
 ## Contributing
 
