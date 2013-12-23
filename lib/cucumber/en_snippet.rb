@@ -3,12 +3,6 @@ require "cucumber/en_snippet/version"
 require "cucumber/rb_support/snippet"
 
 module Cucumber
-  module EnSnippet
-    # Your code goes here...
-  end
-end
-
-module Cucumber
   module RbSupport
     module Snippet
       class BaseSnippet
