@@ -21,7 +21,7 @@ Feature: Snippets
           example with <html> entities
         \"\"\"
       """
-    When I run `cucumber features/undefined_steps.feature -s`
+    When I run `cucumber features/undefined_steps.feature -s -I en_regexp`
     Then the output should contain:
       """
       Given(/^a pystring$/) do |string|
@@ -39,7 +39,7 @@ Feature: Snippets
           | table |
           |example|
       """
-    When I run `cucumber features/undefined_steps.feature -s`
+    When I run `cucumber features/undefined_steps.feature -s -I en_regexp`
     Then the output should contain:
       """
       Given(/^a table$/) do |table|

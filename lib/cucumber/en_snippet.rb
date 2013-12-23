@@ -1,29 +1,34 @@
 require "cucumber/en_snippet/version"
 
-require "cucumber/rb_support/snippet"
-
 module Cucumber
-  module RbSupport
-    module Snippet
-      class BaseSnippet
-        def initialize_with_en_keyword(code_keyword, pattern, multiline_argument_class)
-          keyword = en_keyword(code_keyword)
-          keyword = code_keyword if keyword.empty?
+  class EnBaseSnippet < RbSupport::Snippet::BaseSnippet
+    def initialize(code_keyword, pattern, multiline_argument_class)
+      keyword = en_keyword(code_keyword)
+      keyword = code_keyword if keyword.empty?
 
-          initialize_without_en_keyword(keyword, pattern, multiline_argument_class)
-        end
+      super(keyword, pattern, multiline_argument_class)
+    end
 
-        alias_method :initialize_without_en_keyword, :initialize
-        alias_method :initialize, :initialize_with_en_keyword
+    private
 
-        private
+    def en_keyword(code_keyword)
+      %i(given when then).find {|k|
+        ::Regexp.new(::Gherkin::I18n.keyword_regexp(k)) =~ code_keyword
+      }.to_s.capitalize
+    end
+  end
 
-        def en_keyword(code_keyword)
-          %i(given when then).find {|k|
-            ::Regexp.new(::Gherkin::I18n.keyword_regexp(k)) =~ code_keyword
-          }.to_s.capitalize
-        end
-      end
+  class EnRegexp < EnBaseSnippet
+    def typed_pattern
+      "(/^#{pattern}$/)"
+    end
+
+    def self.description
+      'Snippets with parentheses (English keywords)'
     end
   end
 end
+
+Cucumber::RbSupport::RbLanguage::SNIPPET_TYPES.merge!(
+  en_regexp: Cucumber::EnRegexp
+)

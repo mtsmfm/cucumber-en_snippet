@@ -26,6 +26,12 @@ Require this library in your ruby files under `features/support`.
 require 'cucumber/en_snippet'
 ```
 
+Then, run cucumber with snippet type option `-I`.
+
+```
+bundle exec cucumber -I en_regexp
+```
+
 ## Contributing
 
 1. Fork it
