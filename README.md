@@ -1,5 +1,7 @@
 # Cucumber::EnSnippet
 
+[![Build Status](https://travis-ci.org/mtsmfm/cucumber-en_snippet.png?branch=master)](https://travis-ci.org/mtsmfm/cucumber-en_snippet)
+
 Output cucumber step definition snippets in English regardless of a language header.
 
 ## Installation
