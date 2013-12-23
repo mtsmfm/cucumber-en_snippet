@@ -7,22 +7,22 @@ module Cucumber
     module Snippet
       class BaseSnippet
         def initialize_with_en_keyword(code_keyword, pattern, multiline_argument_class)
-          case
-          when ::Regexp.new(Gherkin::I18n.keyword_regexp(:given)) =~ code_keyword
-            en_keyword = 'Given'
-          when ::Regexp.new(Gherkin::I18n.keyword_regexp(:when)) =~ code_keyword
-            en_keyword = 'When'
-          when ::Regexp.new(Gherkin::I18n.keyword_regexp(:then)) =~ code_keyword
-            en_keyword = 'Then'
-          else
-            en_keyword = code_keyword
-          end
+          keyword = en_keyword(code_keyword)
+          keyword = code_keyword if keyword.empty?
 
-          initialize_without_en_keyword(en_keyword, pattern, multiline_argument_class)
+          initialize_without_en_keyword(keyword, pattern, multiline_argument_class)
         end
 
         alias_method :initialize_without_en_keyword, :initialize
         alias_method :initialize, :initialize_with_en_keyword
+
+        private
+
+        def en_keyword(code_keyword)
+          %i(given when then).find {|k|
+            ::Regexp.new(::Gherkin::I18n.keyword_regexp(k)) =~ code_keyword
+          }.to_s.capitalize
+        end
       end
     end
   end
