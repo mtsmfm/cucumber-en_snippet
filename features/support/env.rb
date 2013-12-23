@@ -12,9 +12,9 @@ RSpec::Matchers.define :include do |expected|
   failure_message_for_should do |actual|
     <<-EOM.gsub(/^ *\|/, '')
       |expected:
-      |#{expected.gsub(/^/,'  ')}
+      #{expected.gsub(/^/,'|  ')}
       |got:
-      |#{actual.gsub(/^/,'  ')}
+      #{actual.gsub(/^/,'|  ')}
     EOM
   end
 end
