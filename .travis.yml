@@ -4,3 +4,6 @@ script:
 rvm:
   - 2.1.0
   - 2.0.0
+notifications:
+  webhooks:
+    secure: aENc0b5Fhh4p5gSd96pkBR+Z25kfvk4gsr9TOq1kkiN0JR6ENbdN4iny4pkk1xUaprkx0h4E6SJm92ydvbtwCIx8onROY0O0mvUOh50QuWbLGV81dKMFBQ6jSpGPZEpFyrvY+iD8FuF0S9KSoojWJtS0vf37xII7tBMlqf3HFJk=
